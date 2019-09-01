@@ -1,21 +1,21 @@
 ## Validating References with Lifetimes
 
-One detail we didn’t discuss in the [“References and Borrowing”]
-[references-and-borrowing]<!-- ignore --> section in Chapter 4 is that every
-reference in Rust has a *lifetime*, which is the scope for which that reference
-is valid. Most of the time, lifetimes are implicit and inferred, just like most
-of the time, types are inferred. We must annotate types when multiple types are
-possible. In a similar way, we must annotate lifetimes when the lifetimes of
-references could be related in a few different ways. Rust requires us to
-annotate the relationships using generic lifetime parameters to ensure the
-actual references used at runtime will definitely be valid.
+One detail we didn’t discuss in the [“References and
+Borrowing”][references-and-borrowing]<!-- ignore --> section in Chapter 4 is
+that every reference in Rust has a *lifetime*, which is the scope for which
+that reference is valid. Most of the time, lifetimes are implicit and
+inferred, just like most of the time, types are inferred. We must annotate
+types when multiple types are possible. In a similar way, we must annotate
+lifetimes when the lifetimes of references could be related in a few different
+ways. Rust requires us to annotate the relationships using generic lifetime
+parameters to ensure the actual references used at runtime will definitely be
+valid.
 
 The concept of lifetimes is somewhat different from tools in other programming
 languages, arguably making lifetimes Rust’s most distinctive feature. Although
 we won’t cover lifetimes in their entirety in this chapter, we’ll discuss
 common ways you might encounter lifetime syntax so you can become familiar with
-the concepts. See the [“Advanced Lifetimes”][advanced-lifetimes]<!-- ignore -->
-section in Chapter 19 for more detailed information.
+the concepts.
 
 ### Preventing Dangling References with Lifetimes
 
@@ -277,13 +277,15 @@ The function signature now tells Rust that for some lifetime `'a`, the function
 takes two parameters, both of which are string slices that live at least as
 long as lifetime `'a`. The function signature also tells Rust that the string
 slice returned from the function will live at least as long as lifetime `'a`.
-These constraints are what we want Rust to enforce. Remember, when we specify
-the lifetime parameters in this function signature, we’re not changing the
-lifetimes of any values passed in or returned. Rather, we’re specifying that
-the borrow checker should reject any values that don’t adhere to these
-constraints. Note that the `longest` function doesn’t need to know exactly how
-long `x` and `y` will live, only that some scope can be substituted for `'a`
-that will satisfy this signature.
+In practice, it means that the lifetime of the reference returned by the
+`longest` function is the same as the smaller of the lifetimes of the
+references passed in. These constraints are what we want Rust to enforce.
+Remember, when we specify the lifetime parameters in this function signature,
+we’re not changing the lifetimes of any values passed in or returned. Rather,
+we’re specifying that the borrow checker should reject any values that don’t
+adhere to these constraints. Note that the `longest` function doesn’t need to
+know exactly how long `x` and `y` will live, only that some scope can be
+substituted for `'a` that will satisfy this signature.
 
 When annotating lifetimes in functions, the annotations go in the function
 signature, not in the function body. Rust can analyze the code within the
@@ -772,8 +774,6 @@ traits. Chapter 19 covers more complex scenarios involving lifetime annotations
 as well as some advanced type system features. But next, you’ll learn how to
 write tests in Rust so you can make sure your code is working the way it should.
 
-[advanced-lifetimes]:
-ch19-02-advanced-lifetimes.html#advanced-lifetimes
 [references-and-borrowing]:
 ch04-02-references-and-borrowing.html#references-and-borrowing
 [string-slices-as-parameters]:

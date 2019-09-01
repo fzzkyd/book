@@ -35,8 +35,9 @@ condition. In this case, the condition checks whether or not the variable
 condition is true is placed immediately after the condition inside curly
 brackets. Blocks of code associated with the conditions in `if` expressions are
 sometimes called *arms*, just like the arms in `match` expressions that we
-discussed in the [“Comparing the Guess to the Secret Number”]
-[comparing-the-guess-to-the-secret-number]<!-- ignore --> section of Chapter 2.
+discussed in the [“Comparing the Guess to the Secret
+Number”][comparing-the-guess-to-the-secret-number]<!-- ignore --> section of
+Chapter 2.
 
 Optionally, we can also include an `else` expression, which we chose
 to do here, to give the program an alternative block of code to execute should
@@ -365,7 +366,7 @@ fn main() {
     while number != 0 {
         println!("{}!", number);
 
-        number = number - 1;
+        number -= 1;
     }
 
     println!("LIFTOFF!!!");
@@ -394,7 +395,7 @@ fn main() {
     while index < 5 {
         println!("the value is: {}", a[index]);
 
-        index = index + 1;
+        index += 1;
     }
 }
 ```

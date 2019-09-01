@@ -291,7 +291,7 @@ fn it_adds_two() {
 ```
 
 Note that the `mod common;` declaration is the same as the module declaration
-we demonstrated in Listing 7-25. Then in the test function, we can call the
+we demonstrated in Listing 7-21. Then in the test function, we can call the
 `common::setup()` function.
 
 #### Integration Tests for Binary Crates
@@ -325,4 +325,4 @@ Let’s combine the knowledge you learned in this chapter and in previous
 chapters to work on a project!
 
 [separating-modules-into-files]:
-ch07-02-modules-and-use-to-control-scope-and-privacy.html#separating-modules-into-different-files
+ch07-05-separating-modules-into-different-files.html

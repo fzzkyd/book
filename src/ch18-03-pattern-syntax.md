@@ -115,16 +115,16 @@ arm will execute:
 let x = 5;
 
 match x {
-    1 ... 5 => println!("one through five"),
+    1...5 => println!("one through five"),
     _ => println!("something else"),
 }
 ```
 
 If `x` is 1, 2, 3, 4, or 5, the first arm will match. This syntax is more
-convenient than using the `|` operator to express the same idea; instead of `1
-... 5`, we would have to specify `1 | 2 | 3 | 4 | 5` if we used `|`. Specifying
-a range is much shorter, especially if we want to match, say, any number
-between 1 and 1,000!
+convenient than using the `|` operator to express the same idea; instead of
+`1...5`, we would have to specify `1 | 2 | 3 | 4 | 5` if we used `|`.
+Specifying a range is much shorter, especially if we want to match, say, any
+number between 1 and 1,000!
 
 Ranges are only allowed with numeric values or `char` values, because the
 compiler checks that the range isn’t empty at compile time. The only types for
@@ -136,8 +136,8 @@ Here is an example using ranges of `char` values:
 let x = 'c';
 
 match x {
-    'a' ... 'j' => println!("early ASCII letter"),
-    'k' ... 'z' => println!("late ASCII letter"),
+    'a'...'j' => println!("early ASCII letter"),
+    'k'...'z' => println!("late ASCII letter"),
     _ => println!("something else"),
 }
 ```
@@ -326,16 +326,16 @@ matching.
 
 #### Destructuring Nested Structs and Enums
 
-Up until now, all of our examples have been matching structs or enums that were
-one level deep. Matching can work on nested items too!
+Until now, all our examples have been matching structs or enums that were one
+level deep. Matching can work on nested items too!
 
-For example, we can refactor the code in Listing 18-15 to support both RGB and
-HSV colors in the `ChangeColor` message, as shown in Listing 18-16.
+For example, we can refactor the code in Listing 18-15 to support RGB and HSV
+colors in the `ChangeColor` message, as shown in Listing 18-16.
 
 ```rust
 enum Color {
    Rgb(i32, i32, i32),
-   Hsv(i32, i32, i32)
+   Hsv(i32, i32, i32),
 }
 
 enum Message {
@@ -373,11 +373,11 @@ fn main() {
 <span class="caption">Listing 18-16: Matching on nested enums</span>
 
 The pattern of the first arm in the `match` expression matches a
-`Message::ChangeColor` enum variant that contains a `Color::Rgb` variant, and
-then the pattern binds to the three inner `i32` values. The pattern of the
-second arm also matches a `Message::ChangeColor` enum variant, but the inner
-enum matches the `Color::Hsv` variant instead. We can specify these complex
-conditions in one `match` expression even though two enums are involved.
+`Message::ChangeColor` enum variant that contains a `Color::Rgb` variant; then
+the pattern binds to the three inner `i32` values. The pattern of the second
+arm also matches a `Message::ChangeColor` enum variant, but the inner enum
+matches the `Color::Hsv` variant instead. We can specify these complex
+conditions in one `match` expression, even though two enums are involved.
 
 #### Destructuring Structs and Tuples
 

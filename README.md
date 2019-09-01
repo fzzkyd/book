@@ -1,6 +1,6 @@
 # The Rust Programming Language
 
-[![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
+[![Build Status](https://travis-ci.com/rust-lang/book.svg?branch=master)](https://travis-ci.com/rust-lang/book)
 
 This repository contains the source of "The Rust Programming Language" book.
 
@@ -19,10 +19,10 @@ releases are updated less frequently.
 
 ## Requirements
 
-Building the book requires [mdBook], ideally the same version that
-[rust-lang/rust uses in this file][rust-mdbook]. To get it:
+Building the book requires [mdBook], ideally the same 0.2.x version that
+rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 
-[mdBook]: https://github.com/azerupi/mdBook
+[mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
 ```bash
@@ -77,7 +77,7 @@ a new language! We're waiting on [mdbook support] for multiple languages
 before we merge any in, but feel free to start!
 
 [Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/azerupi/mdBook/issues/5
+[mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
 
 ## Graphviz dot
 

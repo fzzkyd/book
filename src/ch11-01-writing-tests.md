@@ -105,8 +105,8 @@ reads `1 passed; 0 failed` totals the number of tests that passed or failed.
 Because we don’t have any tests we’ve marked as ignored, the summary shows `0
 ignored`. We also haven’t filtered the tests being run, so the end of the
 summary shows `0 filtered out`. We’ll talk about ignoring and filtering out
-tests in the next section, [“Controlling How Tests Are Run.”]
-[controlling-how-tests-are-run]<!-- ignore -->
+tests in the next section, [“Controlling How Tests Are
+Run.”][controlling-how-tests-are-run]<!-- ignore -->
 
 The `0 measured` statistic is for benchmark tests that measure performance.
 Benchmark tests are, as of this writing, only available in nightly Rust. See
@@ -282,11 +282,12 @@ larger rectangle can indeed hold a smaller rectangle</span>
 
 Note that we’ve added a new line inside the `tests` module: `use super::*;`.
 The `tests` module is a regular module that follows the usual visibility rules
-we covered in Chapter 7 in the [“Modules as the Privacy
-Boundary”][modules-as-privacy-boundary]<!-- ignore --> section. Because the
-`tests` module is an inner module, we need to bring the code under test in the
-outer module into the scope of the inner module. We use a glob here so anything
-we define in the outer module is available to this `tests` module.
+we covered in Chapter 7 in the [“Paths for Referring to an Item in the Module
+Tree”][paths-for-referring-to-an-item-in-the-module-tree]<!-- ignore -->
+section. Because the `tests` module is an inner module, we need to bring the
+code under test in the outer module into the scope of the inner module. We use
+a glob here so anything we define in the outer module is available to this
+`tests` module.
 
 We’ve named our test `larger_can_hold_smaller`, and we’ve created the two
 `Rectangle` instances that we need. Then we called the `assert!` macro and
@@ -509,12 +510,12 @@ optional arguments to the `assert!`, `assert_eq!`, and `assert_ne!` macros. Any
 arguments specified after the one required argument to `assert!` or the two
 required arguments to `assert_eq!` and `assert_ne!` are passed along to the
 `format!` macro (discussed in Chapter 8 in the [“Concatenation with the `+`
-Operator or the `format!` Macro”]
-[concatenation-with-the--operator-or-the-format-macro]<!-- ignore --> section),
-so you can pass a format string that contains `{}` placeholders and values to
-go in those placeholders. Custom messages are useful to document what an
-assertion means; when a test fails, you’ll have a better idea of what the
-problem is with the code.
+Operator or the `format!`
+Macro”][concatenation-with-the--operator-or-the-format-macro]<!-- ignore -->
+section), so you can pass a format string that contains `{}` placeholders and
+values to go in those placeholders. Custom messages are useful to document
+what an assertion means; when a test fails, you’ll have a better idea of what
+the problem is with the code.
 
 For example, let’s say we have a function that greets people by name and we
 want to test that the name we pass into the function appears in the output:
@@ -808,10 +809,9 @@ figuring out where our bug is!
 
 ### Using `Result<T, E>` in Tests
 
-So far, we’ve written tests that fail when code within the test panics. We can
-also write tests that use `Result<T, E>` and fail when code within the test
-returns the `Err` variant! Here’s the test from Listing 11-1, rewritten to use
-`Result<T, E>` instead of panicking:
+So far, we’ve written tests that panic when they fail. We can also write tests
+that use `Result<T, E>`! Here’s the test from Listing 11-1, rewritten to use
+`Result<T, E>` and return an `Err` instead of panicking:
 
 ```rust
 #[cfg(test)]
@@ -830,9 +830,11 @@ mod tests {
 The `it_works` function now has a return type, `Result<(), String>`. In the
 body of the function, rather than calling the `assert_eq!` macro, we return
 `Ok(())` when the test passes and an `Err` with a `String` inside when the test
-fails. Writing tests that return a `Result<T, E>` enables you to use the `?`
-operator in the body of tests, which can be a convenient way to write tests
-that should fail if any operation within them returns an `Err` variant.
+fails.
+
+Writing tests so they return a `Result<T, E>` enables you to use the question
+mark operator in the body of tests, which can be a convenient way to write
+tests that should fail if any operation within them returns an `Err` variant.
 
 You can’t use the `#[should_panic]` annotation on tests that use `Result<T,
 E>`. Instead, you should return an `Err` value directly when the test should
@@ -848,4 +850,4 @@ ch08-02-strings.html#concatenation-with-the--operator-or-the-format-macro
 ch11-02-running-tests.html#controlling-how-tests-are-run
 [derivable-traits]: appendix-03-derivable-traits.html
 [doc-comments]: ch14-02-publishing-to-crates-io.html#documentation-comments-as-tests
-[modules-as-privacy-boundary]: ch07-02-modules-and-use-to-control-scope-and-privacy.html#modules-as-the-privacy-boundary
+[paths-for-referring-to-an-item-in-the-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html

@@ -97,6 +97,7 @@ deallocated
 deallocating
 deallocation
 debuginfo
+decl
 decrementing
 deduplicate
 deduplicating
@@ -156,6 +157,7 @@ filename
 Filename
 filesystem
 Filesystem
+filesystem's
 filesystems
 Firefox
 FnBox
@@ -215,6 +217,7 @@ initializers
 inline
 instantiation
 internet
+interoperate
 IntoIterator
 InvalidDigit
 invariants
@@ -233,6 +236,7 @@ JavaScript
 JoinHandle
 Kay's
 kinded
+Klabnik
 lang
 LastWriteTime
 latin
@@ -246,6 +250,7 @@ libreoffice
 libstd
 lifecycle
 LimitTracker
+linter
 LLVM
 lobally
 locators
@@ -514,6 +519,7 @@ variable's
 variant's
 vers
 versa
+vert
 Versioning
 visualstudio
 Vlissides

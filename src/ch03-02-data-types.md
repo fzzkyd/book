@@ -8,9 +8,9 @@ Keep in mind that Rust is a *statically typed* language, which means that it
 must know the types of all variables at compile time. The compiler can usually
 infer what type we want to use based on the value and how we use it. In cases
 when many types are possible, such as when we converted a `String` to a numeric
-type using `parse` in the [“Comparing the Guess to the Secret Number”]
-[comparing-the-guess-to-the-secret-number]<!-- ignore --> section in Chapter 2,
-we must add a type annotation, like this:
+type using `parse` in the [“Comparing the Guess to the Secret
+Number”][comparing-the-guess-to-the-secret-number]<!-- ignore --> section in
+Chapter 2, we must add a type annotation, like this:
 
 ```rust
 let guess: u32 = "42".parse().expect("Not a number!");
@@ -100,14 +100,15 @@ which you’d use `isize` or `usize` is when indexing some sort of collection.
 
 > ##### Integer Overflow
 >
-> Let’s say you have a variable of type `u8` that can hold values between 0 and
-> 255. If you try to change the variable to a value outside of that range, such
+> Let’s say you have a variable of type `u8` that can hold values between 0 and 255.
+> If you try to change the variable to a value outside of that range, such
 > as 256, *integer overflow* will occur. Rust has some interesting rules
 > involving this behavior. When you’re compiling in debug mode, Rust includes
-> checks for integer overflow that causes your program to *panic* at runtime if
+> checks for integer overflow that cause your program to *panic* at runtime if
 > this behavior occurs. Rust uses the term panicking when a program exits with
 > an error; we’ll discuss panics in more depth in the [“Unrecoverable Errors
-> with `panic!`”][unrecoverable-errors-with-panic] section in Chapter 9.
+> with `panic!`”][unrecoverable-errors-with-panic]<!-- ignore --> section in
+> Chapter 9.
 >
 > When you’re compiling in release mode with the `--release` flag, Rust does
 > *not* include checks for integer overflow that cause panics. Instead, if
@@ -394,8 +395,8 @@ $ cargo run
    Compiling arrays v0.1.0 (file:///projects/arrays)
     Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
      Running `target/debug/arrays`
-thread '<main>' panicked at 'index out of bounds: the len is 5 but the index is
- 10', src/main.rs:6
+thread 'main' panicked at 'index out of bounds: the len is 5 but the index is
+ 10', src/main.rs:5:19
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 ```
 
