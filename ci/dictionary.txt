@@ -6,6 +6,7 @@ adaptor
 adaptors
 AddAssign
 Addr
+afdc
 aggregator
 AGraph
 aliasability
@@ -160,7 +161,6 @@ Filesystem
 filesystem's
 filesystems
 Firefox
-FnBox
 FnMut
 FnOnce
 formatter
@@ -248,6 +248,7 @@ libpanic
 librarys
 libreoffice
 libstd
+libunwind
 lifecycle
 LimitTracker
 linter
@@ -335,6 +336,7 @@ parameterize
 ParseIntError
 PartialEq
 PartialOrd
+pbcopy
 PendingReview
 PendingReviewPost
 PlaceholderType
